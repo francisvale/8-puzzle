@@ -3,6 +3,7 @@ import pygame, sys
 from pygame.locals import *
 import random
 from queue import PriorityQueue
+import time
 
 
 #General Setup
@@ -498,8 +499,10 @@ def game(animating, value):
             if bfs_button.draw():
                 if done_solving == False:
                     start = modif()
+                    start2 = time.time()
                     s = bfs(start)
-                    print("Solution Found!")
+                    end = time.time()
+                    print("Solution Found in " + str(end - start2) +" seconds!")
                     g = solution(s)
                     dispSol(screen, g)
                     done_solving = True
@@ -513,8 +516,10 @@ def game(animating, value):
             if astar_button.draw():
                 if done_solving == False:
                     start = modif()
+                    start2 = time.time()
                     s = a_star(start)
-                    print("Solution Found!")
+                    end = time.time()
+                    print("Solution Found in " + str(end - start2) +" seconds!")
                     g = solution(s)
                     dispSol(screen, g)
                     done_solving = True
